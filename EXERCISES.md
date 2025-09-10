@@ -4,8 +4,8 @@ This file contains one focused exercise for each type of test.
 
 ## 📋 Exercise Instructions
 
-1. **Read the existing tests** to understand the patterns
-2. **Implement the new test** following the same structure
+1. **Find the test with TODO comment** in the existing test files
+2. **Implement the test** following the same structure as other tests
 3. **Run the test** to verify it passes
 4. **Check coverage** to see the improvement
 
@@ -13,49 +13,58 @@ This file contains one focused exercise for each type of test.
 
 ## 🔬 Unit Test Exercise
 
-### Exercise 1: User Model Methods
-**File**: `__tests__/unit/userModel.test.js`
+### Exercise 1: User Validator - Invalid Email
+**File**: `__tests__/unit/userValidator.test.js`
 
-**Task**: Create unit tests for the User model class.
+**Task**: Implement the test for invalid email validation.
 
-**Test Cases to Implement**:
-- [ ] `toJSON()` should return user data with password
-- [ ] `toSafeJSON()` should return user data without password
-- [ ] Constructor should set default dates when not provided
+**Test to Implement**:
+```javascript
+it('should reject invalid email', () => {
+  // TODO: Implement this test
+  // Test that validateUser rejects invalid email format
+});
+```
 
-**Hint**: Look at `src/models/User.js` to understand the methods.
+**Hint**: Look at other validation tests in the same file for the pattern.
 
 ---
 
 ## 🔗 Integration Test Exercise
 
-### Exercise 2: User Service Edge Cases
-**File**: `__tests__/integration/userService.edgeCases.test.js`
+### Exercise 2: User Service - Duplicate Email Prevention
+**File**: `__tests__/integration/userService.integration.test.js`
 
-**Task**: Create integration tests for edge cases.
+**Task**: Implement the test for duplicate email prevention.
 
-**Test Cases to Implement**:
-- [ ] `createUser()` should handle database connection errors
-- [ ] `updateUser()` should validate data before updating
-- [ ] `deleteUser()` should clean up related data
+**Test to Implement**:
+```javascript
+it('should prevent creation of user with duplicate email', async () => {
+  // TODO: Implement this test
+  // Test that creating two users with same email fails
+});
+```
 
-**Hint**: Use real database operations and test error conditions.
+**Hint**: Look at other integration tests in the same file for the pattern.
 
 ---
 
 ## 🌐 End-to-End Test Exercise
 
-### Exercise 3: API Error Scenarios
-**File**: `__tests__/e2e/apiErrorScenarios.test.js`
+### Exercise 3: API Login - Nonexistent User
+**File**: `__tests__/e2e/userAPI.e2e.test.js`
 
-**Task**: Create E2E tests for API error handling.
+**Task**: Implement the test for login with nonexistent user.
 
-**Test Cases to Implement**:
-- [ ] POST `/api/users` with malformed JSON should return 400
-- [ ] GET `/api/users/invalid-uuid` should return 400
-- [ ] POST `/api/users/login` with empty body should return 400
+**Test to Implement**:
+```javascript
+it('should return 401 error for nonexistent user', async () => {
+  // TODO: Implement this test
+  // Test that login with nonexistent user returns 401
+});
+```
 
-**Hint**: Test invalid inputs and malformed requests.
+**Hint**: Look at other E2E tests in the same file for the pattern.
 
 ---
 
@@ -65,8 +74,10 @@ This file contains one focused exercise for each type of test.
 # Run all tests
 npm test
 
-# Run specific exercise
-npm test -- --testPathPattern="exerciseName"
+# Run specific test file
+npm test -- __tests__/unit/userValidator.test.js
+npm test -- __tests__/integration/userService.integration.test.js
+npm test -- __tests__/e2e/userAPI.e2e.test.js
 
 # Check coverage
 npm run test:coverage
@@ -74,17 +85,17 @@ npm run test:coverage
 
 ## 💡 Tips for Success
 
-1. **Start with unit tests** - they're the easiest
-2. **Follow existing patterns** - look at current tests
-3. **Test edge cases** - not just happy paths
-4. **Use descriptive names** - make tests self-documenting
-5. **Keep tests simple** - one assertion per test when possible
+1. **Look at existing tests** - follow the same pattern
+2. **Use descriptive names** - make tests self-documenting
+3. **Test one thing at a time** - keep tests focused
+4. **Use proper assertions** - expect the right behavior
+5. **Handle async properly** - use await when needed
 
 ## 🎓 Learning Objectives
 
 After completing these exercises, you should understand:
-- How to write effective unit tests
-- How to test integration between components
-- How to test complete API workflows
-- How to handle error scenarios
-- How to improve test coverage
+- How to write unit tests for validation logic
+- How to write integration tests for business rules
+- How to write E2E tests for API error handling
+- How to follow existing test patterns
+- How to implement TODO tests
