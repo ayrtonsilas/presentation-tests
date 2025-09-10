@@ -177,6 +177,16 @@ __tests__/
 7. **API Testing** with Supertest
 8. **Database Testing** (in-memory)
 
+## 🎯 Student Exercises
+
+This project includes one focused exercise for each type of test:
+
+- **Unit Test**: User model methods testing
+- **Integration Test**: User service edge cases
+- **E2E Test**: API error scenarios
+
+See [EXERCISES.md](./EXERCISES.md) for detailed instructions and test cases to implement.
+
 ## 💡 Benefits of Automated Testing
 
 - **Reliability**: Detects bugs before production
